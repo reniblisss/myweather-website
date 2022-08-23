@@ -66,7 +66,15 @@ function fahrenConversion(event) {
   let fahrenhConv = (fahrenhTemp.innerHTML * 9) / 5 + 32;
   fahrenhTemp.innerHTML = Math.round(fahrenhConv);
 }
+function celsConversion(event) {
+  event.preventDefault();
+  let celsTemp = document.querySelector("#temperature");
+  let celsConv = ((celsTemp.innerHTML - 32) * 5) / 9;
+  celsTemp.innerHTML = Math.round(celsConv);
+}
 let celsiusTemperature = null;
 let fahrenhTemperature = document.querySelector("#fahrenh-temp");
 fahrenhTemperature.addEventListener("click", fahrenConversion);
+let celsTemperature = document.querySelector("#celsius-temp");
+celsTemperature.addEventListener("click", celsConversion);
 search("Kyiv");
