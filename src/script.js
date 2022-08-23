@@ -35,13 +35,16 @@ function search(event) {
   let h1 = document.querySelector("h1");
   h1.innerHTML = searchInput.value;
 }
+
 let form = document.querySelector(".search-form");
 form.addEventListener("submit", search);
 function currentTemperature(response) {
+  celsiusTemperature = response.data.main.temp;
   let h1 = document.querySelector("h1");
   let temp = document.querySelector("#temperature");
   h1.innerHTML = response.data.name;
   temp.innerHTML = Math.round(response.data.main.temp);
+  celsiusTemperature = response.data.main.temp;
 }
 function showInfo(position) {
   let latitude = position.coords.latitude;
@@ -56,3 +59,14 @@ function getCurrentPosition(event) {
 
 let buttonLocation = document.querySelector("#geolocation");
 buttonLocation.addEventListener("click", getCurrentPosition);
+
+function fahrenConversion(event) {
+  event.preventDefault();
+  let fahrenhTemp = document.querySelector("#temperature");
+  let fahrenhConv = (fahrenhTemp.innerHTML * 9) / 5 + 32;
+  fahrenhTemp.innerHTML = Math.round(fahrenhConv);
+}
+let celsiusTemperature = null;
+let fahrenhTemperature = document.querySelector("#fahrenh-temp");
+fahrenhTemperature.addEventListener("click", fahrenConversion);
+search("Kyiv");
