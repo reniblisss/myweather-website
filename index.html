@@ -16,11 +16,12 @@
               <div class="row">
                 <div class="col">
       <form class="search-form">
-        <input type="search" autocomplete="off" id="search-field" value="Search city" autofocus>
+        <input type="search" autocomplete="off" id="search-field" placeholder="Search a city" class="form-control"/>
+        
       </form>
     </div>
     <div class="col">
-      <button class="geolocation" id="geolocation">Current</button>
+      <button class="geolocation btn btn-primary" id="geolocation">Current</button>
       </div>
   
     </div>
@@ -40,20 +41,24 @@
       
             <span class="current-temperature" id="temperature">24 </span>
             <span class="units">
-              <a href=# id="celsius-temp">°C</a> /
-          <a href=# id="fahrenh-temp">F</a>
+              <a href=# id="celsius-temp" class="active unit">°C</a> /
+          <a href=# id="fahrenh-temp" class="unit">F</a>
           </span>
       
        <div class="temp-info">
+        <ul>
+         <li>Wind: <span id="wind"></span> m/h</li>
+          <li>Humidity: <span id="humidity" class="humidity"></span> %</li>
+        </ul>
          
           <h2>
               Clear
               </h2>
           <h3>
-              <i class="fa-solid fa-temperature-low"></i> 20°C
+              <i class="fa-solid fa-temperature-low"></i><span id="min-temp">20°C</span>
             </h3>
             <h3>
-                <i class="fa-solid fa-temperature-high"></i> 24°C
+                <i class="fa-solid fa-temperature-high"></i><span id="max-temp">24°C</span>
               </h3>
             
             </div>   

@@ -21,9 +21,22 @@ if (minutes < 10) {
   minutes = `0${minutes}`;
 }
 currentDate.innerHTML = `${week}, ${hours}:${minutes}`;
+
 function showTemp(response) {
   document.querySelector("#temperature").innerHTML = Math.round(
     response.data.main.temp
+  );
+  document.querySelector("#wind").innerHTML = Math.round(
+    response.data.wind.speed
+  );
+  document.querySelector("#humidity").innerHTML = Math.round(
+    response.data.main.humidity
+  );
+  document.querySelector("#min-temp").innerHTML = Math.round(
+    response.data.main.temp_min
+  );
+  document.querySelector("#max-temp").innerHTML = Math.round(
+    response.data.main.temp_max
   );
 }
 function search(event) {
@@ -38,14 +51,14 @@ function search(event) {
 
 let form = document.querySelector(".search-form");
 form.addEventListener("submit", search);
+
 function currentTemperature(response) {
-  celsiusTemperature = response.data.main.temp;
   let h1 = document.querySelector("h1");
   let temp = document.querySelector("#temperature");
   h1.innerHTML = response.data.name;
   temp.innerHTML = Math.round(response.data.main.temp);
-  celsiusTemperature = response.data.main.temp;
 }
+
 function showInfo(position) {
   let latitude = position.coords.latitude;
   let longitude = position.coords.longitude;
