@@ -1,11 +1,16 @@
 body {
   margin: 100px;
   color: #fff;
+  font-family: "Roboto", sans-serif;
 }
 .card-body {
   margin: 0 auto;
-  background-color: #143855;
-
+  background: rgb(143, 228, 212);
+  background: linear-gradient(
+    0deg,
+    rgba(143, 228, 212, 0.18110994397759106) 6%,
+    rgba(0, 0, 0, 1) 100%
+  );
   padding: 28px;
   border-radius: 4px;
   width: 600px;
@@ -20,7 +25,6 @@ h2:first-letter {
 
 h3 {
   font-size: 13px;
-  opacity: 0.3;
 }
 h1 {
   font-size: 90px;
@@ -80,4 +84,10 @@ a {
 .geolocation {
   border-radius: 4px;
   border: none;
+}
+.link {
+  color: rgb(243, 30, 30);
+  font-style: monospaced;
+  font-size: 15px;
+  margin-left: 300px;
 }
