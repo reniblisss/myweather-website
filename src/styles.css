@@ -14,6 +14,9 @@ body {
 h2 {
   font-size: 13px;
 }
+h2:first-letter {
+  text-transform: capitalize;
+}
 
 h3 {
   font-size: 13px;

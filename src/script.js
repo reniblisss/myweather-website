@@ -38,6 +38,12 @@ function showTemp(response) {
   document.querySelector("#max-temp").innerHTML = Math.round(
     response.data.main.temp_max
   );
+  document.querySelector("#description").innerHTML =
+    response.data.weather[0].description;
+  document.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
 }
 function search(event) {
   event.preventDefault();
