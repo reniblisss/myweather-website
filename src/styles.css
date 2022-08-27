@@ -26,6 +26,10 @@ h1 {
   font-size: 90px;
   padding: 0;
 }
+h1:first-letter {
+  text-transform: capitalize;
+}
+
 .date {
   margin-top: 20px;
 }

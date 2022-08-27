@@ -23,6 +23,7 @@ if (minutes < 10) {
 currentDate.innerHTML = `${week}, ${hours}:${minutes}`;
 
 function showTemp(response) {
+  celsiusTemperature = response.data.main.temp;
   document.querySelector("#temperature").innerHTML = Math.round(
     response.data.main.temp
   );
@@ -40,10 +41,12 @@ function showTemp(response) {
   );
   document.querySelector("#description").innerHTML =
     response.data.weather[0].description;
-  document.setAttribute(
-    "src",
-    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
-  );
+  document
+    .querySelector("#image")
+    .setAttribute(
+      "src",
+      `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+    );
 }
 function search(event) {
   event.preventDefault();
@@ -82,14 +85,14 @@ buttonLocation.addEventListener("click", getCurrentPosition);
 function fahrenConversion(event) {
   event.preventDefault();
   let fahrenhTemp = document.querySelector("#temperature");
-  let fahrenhConv = (fahrenhTemp.innerHTML * 9) / 5 + 32;
+  let fahrenhConv = (celsiusTemperature * 9) / 5 + 32;
   fahrenhTemp.innerHTML = Math.round(fahrenhConv);
 }
 function celsConversion(event) {
   event.preventDefault();
   let celsTemp = document.querySelector("#temperature");
-  let celsConv = ((celsTemp.innerHTML - 32) * 5) / 9;
-  celsTemp.innerHTML = Math.round(celsConv);
+
+  celsTemp.innerHTML = Math.round(celsiusTemperature);
 }
 let celsiusTemperature = null;
 let fahrenhTemperature = document.querySelector("#fahrenh-temp");
