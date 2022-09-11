@@ -1,6 +1,6 @@
 body {
   margin: 100px;
-  color: #fff;
+  color: white;
   font-family: "Roboto", sans-serif;
 }
 .card-body {
@@ -14,6 +14,7 @@ body {
   padding: 28px;
   border-radius: 4px;
   width: 600px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
 }
 
 h2 {
@@ -24,7 +25,7 @@ h2:first-letter {
 }
 
 h3 {
-  font-size: 13px;
+  font-size: 14px;
 }
 h1 {
   font-size: 90px;
@@ -44,22 +45,30 @@ h1:first-letter {
 .main {
   display: flex;
 }
-.info {
-  margin-left: 56px;
 
-  padding-top: 10px;
-}
 .temperature {
-  margin-left: 30px;
+  margin-left: 20px;
   padding-top: 20px;
 }
 
+ul {
+  list-style-type: none;
+  margin-left: 30px;
+  padding-left: 0;
+}
 .current-temperature {
   font-size: 70px;
 }
+.description {
+  padding-left: 40px;
+  color: #eff0f5;
+  background-color: #4d4c4b;
+  border-color: #1a1919;
+  border-radius: 4px;
+}
 .units,
 a {
-  font-size: 30px;
+  font-size: 25px;
 
   color: #fff;
   text-decoration: none;
@@ -67,14 +76,26 @@ a {
 }
 
 .temp-info {
-  margin-left: 400px;
+  margin-left: 100px;
 }
-.days {
-  background-color: grey;
-  margin: 2px;
-  padding: 3px;
-  font-size: 13px;
+.weather-forecast {
+  margin: 20px 1px;
+
   text-align: center;
+}
+
+.forecast-block {
+  font-size: 14px;
+  padding: 2px;
+  color: #10162f;
+}
+
+.weather-forecast-temperature-min {
+  opacity: 0.5;
+}
+
+.forecast-temperature {
+  font-size: 13px;
 }
 .button-cels,
 .button-fharenh {

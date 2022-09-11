@@ -1,163 +1,103 @@
 <!DOCTYPE html>
 <html>
   <head>
-      <script src="https://kit.fontawesome.com/4c28447c95.js" crossorigin="anonymous"></script>
+    <script
+      src="https://kit.fontawesome.com/4c28447c95.js"
+      crossorigin="anonymous"
+    ></script>
     <title>Parcel Sandbox</title>
     <meta charset="UTF-8" />
-    
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+      crossorigin="anonymous"
+    />
     <link rel="stylesheet" href="src/styles.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
-    <script  src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   </head>
 
   <body>
-  <div class="container">
-            <div class="card-body">
-              <div class="row">
-                <div class="col">
-      <form class="search-form">
-        <input type="search" autocomplete="off" id="search-field" placeholder="Search a city" class="form-control"/>
-        
-      </form>
-    </div>
-    <div class="col">
-      <button class="geolocation btn btn-primary" id="geolocation">Current</button>
-      </div>
-  
-    </div>
-    <div class="row">
-      <div class="col">
-          <h1>
-             Paris
-
-            </h1>
+    <div class="container">
+      <div class="card-body">
+        <div class="row">
+          <div class="col">
+            <form class="search-form">
+              <input
+                type="search"
+                autocomplete="off"
+                id="search-field"
+                placeholder="Search a city"
+                class="form-control"
+              />
+            </form>
+          </div>
+          <div class="col">
+            <button class="geolocation btn btn-primary" id="geolocation">
+              Current
+            </button>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <br />
+            <h1>Paris</h1>
           </div>
           <div class="col">
             <h2 class="date"></h2>
           </div>
-    </div>
-          
-        
-      <span>
-        <img id="image" src="http://openweathermap.org/img/wn/10d@2x.png" />
-      </span>
-            <span class="current-temperature" id="temperature">24 </span>
+        </div>
+        <div class="row">
+          <div class="col">
+            <span>
+              <img
+                id="image"
+                src="http://openweathermap.org/img/wn/10d@2x.png"
+              />
+            </span>
+            <span class="current-temperature" id="temperature">24</span>
             <span class="units">
-              <a href=# id="celsius-temp" class="active unit">°C</a> /
-          <a href=# id="fahrenh-temp" class="unit">F</a>
-          </span>
-      
-       <div class="temp-info">
-        <ul>
-         <li>Wind: <span id="wind"></span> m/h</li>
-          <li>Humidity: <span id="humidity" class="humidity"></span> %</li>
-        </ul>
-         
-          <h2 id="description">
-              Clear sky
-              </h2>
-          <h3>
-              <i class="fa-solid fa-temperature-low"></i><span id="min-temp">20°C</span>
-            </h3>
-            <h3>
-                <i class="fa-solid fa-temperature-high"></i><span id="max-temp">24°C</span>
-              </h3>
-            
-            </div>   
-  
-  <div class="day-weather">
-      <div class="row">
-        <div class="col days">MON
-        <div class="row">
-            <div class="col">☀
-                 
-    <div class="row">
-      <div class="col">21°C</div>
-    </div>
-            </div>
-        </div>
-      </div>
-        <div class="col days">TUE
-        <div class="row">
-        <div class="col">⛅
-          <div class="row">
-            <div class="col">
-                25°C
+              <a href="#" id="celsius-temp" class="active unit">°C</a> /
+              <a href="#" id="fahrenh-temp" class="unit">F</a>
+            </span>
+          </div>
+          <div class="col">
+            <div class="temp-info">
+              <ul>
+                <li>Wind: <span id="wind"></span> m/h</li>
+                <li>
+                  Humidity: <span id="humidity" class="humidity"></span> %
+                </li>
+              </ul>
+              <div class="description">
+                <h2 id="description">Clear sky</h2>
+                <h3>
+                  <i class="fa-solid fa-temperature-low"></i
+                  ><span id="min-temp">20°C</span>
+                </h3>
+                <h3>
+                  <i class="fa-solid fa-temperature-high"></i
+                  ><span id="max-temp">24°C</span>
+                </h3>
+              </div>
             </div>
           </div>
         </div>
-        </div>
-      </div>
-   
-        <div class="col days">WED
-        <div class="row">
-        <div class="col">☁
-          <div class="row">
-            <div class="col">
-                19°C
-            </div>
-          </div>
-        </div>
-        </div>
-        </div>
-        <div class="col days">THU
-        <div class="row">
-        <div class="col">☀
-          <div class="row">
-            <div class="col">
-                22°C
-            </div>
-          </div>
-        </div>
-        </div>
-      </div>
-        
-        <div class="col days">FRI
-        <div class="row">
-        <div class="col">⛅
-          <div class="row">
-            <div class="col">
-           20°C   
-          </div>
-          </div>
-        </div>
-        </div>
-      </div>
-       <div class="col days">SAT
-       <div class="row">
-       <div class="col">☀
-         <div class="row">
-           <div class="c">
-              18°C
-           </div>
-         </div>
-       </div> 
-       </div>
-      </div>
-      <div class="col days">SUN
-          <div class="row">
-          <div class="col">☀
-            <div class="row">
-<div class="col">
-    16°C
-</div>
-            </div>
-          </div> 
-          </div>
-         </div>
-  </div>
-            </div>
-            </div>
-  
-   
- <a class="link">
-    https://github.com/reniblisss/myweather-website</a> 
-    <script src="src/script.js"></script>
-   
-   
-  </body>
- </html>
 
+        <div class="weather-forecast" id="forecast"></div>
+      </div>
+    </div>
+
+    <a class="link" href="https://github.com/reniblisss/myweather-website">
+      GitHub</a
+    >
+    <script src="src/script.js"></script>
+  </body>
+</html>

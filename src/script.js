@@ -20,7 +20,55 @@ let minutes = now.getMinutes();
 if (minutes < 10) {
   minutes = `0${minutes}`;
 }
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
+  return days[day];
+}
 currentDate.innerHTML = `${week}, ${hours}:${minutes}`;
+function displayForecast(response) {
+  console.log(response.data);
+  let forecast = response.data.daily;
+  let forecastElement = document.querySelector("#forecast");
+  let forecastHTML = `<div class="row">`;
+  let days = ["MON", "TUE", "WED", "THU", "FRI", "SAT", "SUN"];
+
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 7) {
+      forecastHTML =
+        forecastHTML +
+        `<div class="col">
+        <div class="forecast-block">
+        <div class="days">${formatDay(forecastDay.dt)}</div>
+        <img src="http://openweathermap.org/img/wn/${
+          forecastDay.weather[0].icon
+        }@2x.png" width="42"/>
+      <div class="forecast-temperature">
+        <span class="max-forecast-temp">${Math.round(
+          forecastDay.temp.max
+        )}°</span>
+      /
+    <span class="min-forecast-temperature">${Math.round(
+      forecastDay.temp.min
+    )}°</span>
+    </div>
+    </div>
+    </div>
+`;
+    }
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+  console.log(forecastHTML);
+}
+function getForecast(coordinates) {
+  let apiKey = "5f472b7acba333cd8a035ea85a0d4d4c";
+
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=5f472b7acba333cd8a035ea85a0d4d4c&units=metric`;
+  axios.get(apiUrl).then(displayForecast);
+}
 
 function showTemp(response) {
   celsiusTemperature = response.data.main.temp;
@@ -47,6 +95,8 @@ function showTemp(response) {
       "src",
       `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
     );
+
+  getForecast(response.data.coord);
 }
 function search(event) {
   event.preventDefault();
